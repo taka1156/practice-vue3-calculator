@@ -7,10 +7,6 @@
 <script lang="ts">
 import { defineComponent, SetupContext, PropType } from 'vue';
 
-type Props = {
-  calKey: string;
-};
-
 export default defineComponent({
   name: 'CalBtn',
   props: {
