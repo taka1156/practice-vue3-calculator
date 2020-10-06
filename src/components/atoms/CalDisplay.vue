@@ -5,10 +5,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 
-type Props = {
-  calDisplay: string;
-};
-
 export default defineComponent({
   name: 'CalDisplay',
   props: {
