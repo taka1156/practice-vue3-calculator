@@ -86,14 +86,14 @@ export default defineComponent({
       state.ope = '';
     };
 
-    const cal = () => {
+    const cal = (): void => {
       const ANS = Calculator.cal(state.num1, state.num2, state.ope);
       state.num1 = ANS.toString();
       state.num2 = '0';
       state.ope = '';
     };
 
-    const pushBtn = (keyCode: string) => {
+    const pushBtn = (keyCode: string): void => {
       const keyType: keyCode = Calculator.keyCodeAnalyze(keyCode);
       if (keyType === 'clear') {
         reset();
