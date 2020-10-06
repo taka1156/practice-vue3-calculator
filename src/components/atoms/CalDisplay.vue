@@ -18,7 +18,9 @@ export default defineComponent({
       required: true
     }
   },
-  setup() {
+  setup(props: Props) {
+    props.calDisplay;
+
     const wrapText = (num: string): string => {
       return num.length < 11 ? num : `${num.slice(0, 11)}...`;
     };

@@ -21,6 +21,8 @@ export default defineComponent({
     }
   },
   setup(props: Props, context: SetupContext) {
+    props.calKey;
+
     const pushBtn = (): void => {
       context.emit('push-btn', props.calKey);
     };
