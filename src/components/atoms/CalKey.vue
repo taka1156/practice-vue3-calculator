@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, SetupContext } from 'vue';
+import { defineComponent, SetupContext, PropType } from 'vue';
 
 type Props = {
   calKey: string;
@@ -14,15 +14,9 @@ type Props = {
 export default defineComponent({
   name: 'CalBtn',
   props: {
-    calKey: {
-      type: String,
-      default: '0',
-      required: true
-    }
+    calKey: String as PropType<string>
   },
-  setup(props: Props, context: SetupContext) {
-    props.calKey;
-
+  setup(props, context: SetupContext) {
     const pushBtn = (): void => {
       context.emit('push-btn', props.calKey);
     };
