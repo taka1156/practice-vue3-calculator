@@ -1,5 +1,5 @@
 <template>
-  <p class="cal-display">{{ calDisplay }}</p>
+  <p class="cal-display">{{ wrapText(calDisplay) }}</p>
 </template>
 
 <script lang="ts">
@@ -17,6 +17,12 @@ export default defineComponent({
       default: '0',
       required: true
     }
+  },
+  setup() {
+    const wrapText = (num: string): string => {
+      return num.length < 11 ? num : `${num.slice(0, 11)}...`;
+    };
+    return { wrapText };
   }
 });
 </script>
@@ -27,7 +33,7 @@ export default defineComponent({
   color: white;
   height: 50px;
   width: 100%;
-  font-size: 40px;
+  font-size: 35px;
   margin: 0 auto;
   text-align: right;
 }

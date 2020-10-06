@@ -74,8 +74,7 @@ export default defineComponent({
       }
 
       if (state[setKey].includes('-')) {
-        state[setKey].replace('-', '');
-        console.log(state[setKey]);
+        state[setKey] = state[setKey].replace('-', '');
       } else {
         state[setKey] = '-' + state[setKey];
       }
