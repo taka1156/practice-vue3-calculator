@@ -32,7 +32,6 @@ class CalculatorClass implements Calculator {
         return Number(num1) / Number(num2);
       case '%':
         return Number(num1) / 100;
-      case '':
       default:
         return 'E';
     }
