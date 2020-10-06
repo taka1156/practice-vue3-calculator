@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
 type Props = {
   calDisplay: string;
@@ -12,15 +12,9 @@ type Props = {
 export default defineComponent({
   name: 'CalDisplay',
   props: {
-    calDisplay: {
-      type: String,
-      default: '0',
-      required: true
-    }
+    calDisplay: String as PropType<string>
   },
-  setup(props: Props) {
-    props.calDisplay;
-
+  setup() {
     const wrapText = (num: string): string => {
       return num.length < 11 ? num : `${num.slice(0, 11)}...`;
     };
