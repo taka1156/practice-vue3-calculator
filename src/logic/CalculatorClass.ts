@@ -20,7 +20,6 @@ class CalculatorClass implements Calculator {
   }
 
   public cal(num1: string, num2: string, ope: string): number | string {
-    console.log(`${num1} ${ope} ${num2}`);
     switch (ope) {
       case '+':
         return Number(num1) + Number(num2);
