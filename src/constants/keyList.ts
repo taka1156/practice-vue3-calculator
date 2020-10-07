@@ -1,4 +1,4 @@
-const KEY_LIST = [
+const KEY_LIST: string[] = [
   'AC',
   '+/-',
   '%',

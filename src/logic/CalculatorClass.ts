@@ -1,6 +1,7 @@
 enum ERROR_MSG {
   INPUT = '0の時に00は入力できません。',
   REVERSE = '0に+/-はつけられません。',
+  DECIMALPOINT = 'すでに小数点は入力されています',
   OPERATOR = '演算子を入力してください。(+,-,×,÷)',
   RESULT = '前回の結果でエラーが生じているので一度ACします',
   MSGUNDEFINE = 'エラー定義がありません。'
@@ -9,6 +10,7 @@ enum ERROR_MSG {
 enum ERROR_LIST {
   INPUT,
   REVERSE,
+  DECIMALPOINT,
   OPERATOR,
   RESULT
 }
@@ -97,9 +99,12 @@ class CalculatorClass implements Calculator {
         alert(ERROR_MSG.REVERSE);
         return;
       case 2:
-        alert(ERROR_MSG.OPERATOR);
+        alert(ERROR_MSG.DECIMALPOINT);
         return;
       case 3:
+        alert(ERROR_MSG.OPERATOR);
+        return;
+      case 4:
         alert(ERROR_MSG.RESULT);
         return;
       default:
@@ -116,7 +121,7 @@ class CalculatorClass implements Calculator {
     }
 
     if (this.nums[setKey].includes('-')) {
-      this.nums[setKey].replace('-', '');
+      this.nums[setKey] = this.nums[setKey].replace('-', '');
     } else {
       this.nums[setKey] = '-' + this.nums[setKey];
     }
@@ -131,6 +136,10 @@ class CalculatorClass implements Calculator {
         this.nums[setKey] = num;
       }
     } else {
+      if (this.nums[setKey].includes('.') && num === '.') {
+        this.errorCheck(ERROR_LIST.DECIMALPOINT);
+        return;
+      }
       this.nums[setKey] = this.nums[setKey] + num;
     }
   }
