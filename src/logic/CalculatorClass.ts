@@ -123,11 +123,6 @@ class CalculatorClass implements Calculator {
   }
 
   private setNum(setKey: calIndex, num: string): void {
-    if (this.nums[setKey] === 'E') {
-      this.errorCheck(ERROR_LIST.RESULT);
-      this.reset();
-    }
-
     if (this.nums[setKey] === '0' && num !== '.') {
       if (num === '00') {
         this.errorCheck(ERROR_LIST.INPUT);
@@ -148,6 +143,10 @@ class CalculatorClass implements Calculator {
     this.nums[0] = result.toString();
     this.nums[1] = '0';
     this.ope = '';
+    if (this.nums[0] === 'E') {
+      this.errorCheck(ERROR_LIST.RESULT);
+      this.reset();
+    }
   }
 
   private cal(): calAns {
